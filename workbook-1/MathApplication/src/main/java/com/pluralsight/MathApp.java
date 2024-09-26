@@ -32,10 +32,16 @@ public class MathApp {
 
         double negNumber = -3.8;
         double absNumber = Math.abs(negNumber);
-        System.out.println("The absolute number is "+ negNumber);
+        System.out.println("The absolute number is "+ absNumber);
 
         double rdmNumber = Math.random();
         System.out.println("The random number is " + rdmNumber);
+
+
+
+
+
+
 
 
 
