@@ -4,10 +4,8 @@ public class MathApp {
     public static void main(String[] args) {
         float bobSalary = 20_000f;
         float garySalary = 40_000f;
-        System.out.println(Math.max(bobSalary, garySalary));
-
-        String highestSalary = "bobSalary";
-        System.out.println(highestSalary);
+        double highestSalary = Math.max(bobSalary, garySalary);
+        System.out.println("The highest salary is" + highestSalary);
 
         int carprice = 10000;
         int truckprice = 30000;
@@ -18,7 +16,8 @@ public class MathApp {
         System.out.println(area);
 
         double number = 5.0;
-        System.out.println(Math.sqrt(number));
+        double root = Math.sqrt(number);
+        System.out.println("The Square root of 5.0 is" + root);
 
         double x1 = 5;
         double x2 = 85;
@@ -29,7 +28,8 @@ public class MathApp {
         System.out.println(distance);
 
         double negNumber = -3.8;
-        System.out.println(Math.abs(negNumber));
+        double absNumber = Math.abs(negNumber);
+        System.out.println("The absloute number is"+ negNumber);
 
         System.out.println(Math.random());
 
