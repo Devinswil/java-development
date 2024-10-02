@@ -45,8 +45,6 @@ public class fullNameGenerator {
 
         if (suffix.isEmpty()) {
 
-
-
         }else{
             fullName += ", " + suffix;
         }

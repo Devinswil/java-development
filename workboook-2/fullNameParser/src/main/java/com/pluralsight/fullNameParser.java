@@ -12,7 +12,11 @@ public class fullNameParser {
 
     public static String getfirstName(Scanner myscan) {
         System.out.println("Enter your  first: ");
-        return myscan.nextLine();
+        String input = myscan.nextLine();
+        int firstSpaceIndex = input.indexOf(0);
+        if (firstSpaceIndex != -1){}
+        return input.sub();
+
     }
 
     public static String getMiddleName(Scanner myscan) {
