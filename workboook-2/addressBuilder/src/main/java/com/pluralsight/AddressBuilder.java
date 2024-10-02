@@ -23,13 +23,14 @@ public class AddressBuilder {
         String state = myscan.nextLine();
         System.out.println("What is your zipcode:");
         String zipCode = myscan.nextLine();
-
+String name1 = ("Billing Address: ");
+String name2 =("Mailing Address: ");
         StringBuilder baddressBuilder = new StringBuilder();
-        baddressBuilder.append(name).append("\n").append(bstreet).append("\n").append(bcity).append(" ").append(bstate).append(", ").append(bzipCode).append("\n");
+        baddressBuilder.append(name1).append("\n").append(name).append("\n").append(bstreet).append("\n").append(bcity).append(" ").append(bstate).append(", ").append(bzipCode).append("\n");
         System.out.println(baddressBuilder);
 
         StringBuilder addressBuilder = new StringBuilder();
-        addressBuilder.append(name).append("\n").append(street).append("\n").append(city).append(" ").append(state).append(", ").append(zipCode);
+        addressBuilder.append(name2).append("\n").append(name).append("\n").append(street).append("\n").append(city).append(" ").append(state).append(", ").append(zipCode);
         System.out.println(addressBuilder.toString());
 
 
