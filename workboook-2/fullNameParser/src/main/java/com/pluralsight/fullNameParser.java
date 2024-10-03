@@ -11,7 +11,7 @@ public class fullNameParser {
     }
 
     public static void getName(Scanner myscan) {
-        System.out.println("Enter your Full Name:\n ");
+        System.out.println("Enter your Full Name: ");
         String[] input = myscan.nextLine().trim().split(" ");
 
         switch (input.length) {
