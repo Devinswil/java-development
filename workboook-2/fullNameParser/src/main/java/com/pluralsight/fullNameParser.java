@@ -5,24 +5,33 @@ import java.util.Scanner;
 public class fullNameParser {
     public static void main(String[] args) {
         Scanner myscan = new Scanner(System.in);
-        String name1 = getfirstName(myscan);
-        String name2 = getMiddleName(myscan);
+        getName(myscan);
+
 
     }
 
-    public static String getfirstName(Scanner myscan) {
-        System.out.println("Enter your  first: ");
-        String input = myscan.nextLine();
-        int firstSpaceIndex = input.indexOf(0);
-        if (firstSpaceIndex != -1){}
-        return input.sub();
+    public static void getName(Scanner myscan) {
+        System.out.println("Enter your Full Name:\n ");
+        String[] input = myscan.nextLine().trim().split(" ");
+
+        switch (input.length) {
+            case 1:
+                System.out.println("\nFirst Name: " + input[0] + "\nMiddle Name: n/a\n Last Name: n/a ");
+                break;
+            case 2:
+                System.out.println("\nFirst Name: " + input[0] + "\nMiddle Name: n/a" + "\nLast Name: " + input[1]);
+                break;
+            case 3:
+                System.out.println("\nFirst Name: " + input[0] + "\nMiddle Name: " + input[1] + "\nLast Name: " + input[2]);
+                break;
+
+
+        }
+
 
     }
-
-    public static String getMiddleName(Scanner myscan) {
-        System.out.println("Enter your  middle and last anme: ");
-        return myscan.nextLine();
-    }
-
-
 }
+
+
+
+
