@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StoreApp {
-    static void main(String[] args) {
+
+    public static void main(String[] args) {
+
+
         ArrayList<Product> inventory = getInventory();
         Scanner scanner = new Scanner(System.in);
         System.out.println("We carry the following inventory: ");
@@ -15,13 +18,13 @@ public class StoreApp {
         }
     }
 
-    public ArrayList<Product> getInventory() {
+    public static ArrayList<Product> getInventory() {
         ArrayList<Product> inventory = new ArrayList<Product>();
-        inventory.add("", "Apples", "");
-        inventory.add("","Chips","");
-        inventory.add("","Soda","");
-        inventory.add("","Water","");
-        inventory.add("","Frozen Water","");
+        inventory.add(new Product(1, "Apples", 40));
+        inventory.add(new Product(2, "Chips", 49));
+        inventory.add(new Product(3, "Soda", 100));
+        inventory.add(new Product(4, "Water", 50));
+        inventory.add(new Product(5, "Frozen Water", 25));
 // and its details are not shown
         return inventory;
     }
