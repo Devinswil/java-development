@@ -16,7 +16,7 @@ public class formatDates {
         DateTimeFormatter mDate= DateTimeFormatter.ofPattern("MMMM,dd,yyyy");
         String qDate= date.format(mDate);
         System.out.println(qDate);
-        
+
         DateTimeFormatter pDate= DateTimeFormatter.ofPattern("EEEEE");
 
 
