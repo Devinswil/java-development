@@ -41,11 +41,11 @@ public class Employee {
 
 
     public double getTotalpay() {
-       if (hoursWorked<=40){
-           return hoursWorked*payRate;
-       }else{
-           return (40*payRate)*((hoursWorked-40)*(payRate*1.5));
-       }
+        if (hoursWorked <= 40) {
+            return hoursWorked * payRate;
+        } else {
+            return (40 * payRate) * ((hoursWorked - 40) * (payRate * 1.5));
+        }
     }
 
     public double getRegularHours() {

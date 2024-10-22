@@ -5,6 +5,8 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
+    private boolean isCleanRoom;
+
 
 
     public Room(int numberOfBed, double price) {
@@ -32,6 +34,23 @@ public class Room {
     }
     public boolean isAvailable(){
         return !isDirty && !isOccupied;
+    }
+    public boolean checkIn(){
+        return isOccupied && isDirty;
+    }
+    public boolean checkOut(){
+        if (isDirty){
+            return isCleanRoom;
+        } else {
+            return isAvailable();
+        }
+    }
+    public boolean CleanRoom(){
+        if (isCleanRoom){
+            return isAvailable();
+        } else{
+            return isDirty;
+        }
     }
 }
 
