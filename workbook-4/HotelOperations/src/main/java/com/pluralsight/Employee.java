@@ -7,13 +7,23 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private double overTimePayRate;
+    private double startTime;
 
-    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
+    public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
-        this.hoursWorked = hoursWorked;
+        this.hoursWorked = 0;
+        this.startTime = 0;
+    }
+
+    public double getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(double startTime) {
+        this.startTime = startTime;
     }
 
     public int getEmployeeId() {
@@ -62,6 +72,15 @@ public class Employee {
         } else {
             return 0;
         }
+    }
+
+    public void punchIn(double time) {
+        startTime = time;
+    }
+    public void punchOut(double time){
+        double duration = time - startTime;
+        hoursWorked += duration;
+        startTime=0;
     }
 
 }
