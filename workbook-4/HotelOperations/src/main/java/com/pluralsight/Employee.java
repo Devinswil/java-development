@@ -103,4 +103,13 @@ public class Employee {
         startTime=0;
 
     }
+    public void punchTimeCard(double time) {
+        if (startTime == 0) {
+            startTime = time;
+        } else {
+            double duration = time - startTime;
+            hoursWorked += duration;
+            startTime = 0;
+        }
+    }
 }
