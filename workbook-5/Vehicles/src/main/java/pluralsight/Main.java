@@ -9,7 +9,7 @@ public class Main {
 
         Car car = new Car();
         car.closeTrunk();
-        car
+
 
 
     }
