@@ -9,7 +9,7 @@ public class FixedAsset implements IValuable {
         this.value = value;
     }
 
-   
+
     public double getValue() {
         return 0;
     }
