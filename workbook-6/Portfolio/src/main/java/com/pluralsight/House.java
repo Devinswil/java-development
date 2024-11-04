@@ -6,7 +6,7 @@ public class House extends FixedAsset {
     private int bedroom;
 
     public House(String name, double value, int yearBuilt, int squareFeet, int bedroom) {
-        super(name, value);
+        super("House", 0);
         this.yearBuilt = yearBuilt;
         this.squareFeet = squareFeet;
         this.bedroom = bedroom;
@@ -14,6 +14,8 @@ public class House extends FixedAsset {
 
     @Override
     public double getValue() {
-        return super.getValue();
+        double newValue = 0;
+        return newValue + 1000;
+
     }
 }

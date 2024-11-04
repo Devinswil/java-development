@@ -18,7 +18,7 @@ public class Main {
         for (Person person : people) {
             System.out.println(person);
         }
-        
+
 
     }
 }
