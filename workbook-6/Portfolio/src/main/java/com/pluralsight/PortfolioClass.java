@@ -38,5 +38,10 @@ public class PortfolioClass implements IValuable {
 
         return value;
     }
+
+    @Override
+    public double getValue() {
+        return 0;
+    }
 }
 
