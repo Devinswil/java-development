@@ -1,9 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Application {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static Connection connection = null;
+    public static PreparedStatement preparedStatement = null;
+    public static ResultSet result = null;
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
         try {
             if (args.length != 2) {
                 System.out.println(" Please enter Username and password to begin application.");
@@ -12,7 +16,7 @@ public class Application {
             String username = args[0];
             String password = args[1];
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(
+            connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/northwind",
                     username,
                     password
@@ -30,10 +34,10 @@ public class Application {
 
                 switch (input.toLowerCase()) {
                     case "1":
-                       getAllProducts();
+                        getAllProducts();
                         break;
                     case "2":
-                        processGetByMakeModelRequest(scanner);
+                       getAllCustomers();
                         break;
                     case "X":
                         running = false;
@@ -53,13 +57,56 @@ public class Application {
         } catch (Exception ex) {
             System.out.println("An error has occurred!");
             ex.printStackTrace();
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-public static void getAllProducts(){
-  String query = """
-          SELECT ProductName FROM products
-          """;
+    public static void getAllProducts() throws SQLException {
+        String query = """
+                SELECT ProductName FROM products
+                """;
+        preparedStatement = connection.prepareStatement(query);
+        result = preparedStatement.executeQuery();
 
-}
+        while (result.next()) {
+            String productName = result.getString("ProductName");
+            System.out.println("ProductName " + productName);
+
+        }
+    }
+
+    public static void getAllCustomers() throws SQLException {
+        String query = """
+                SELECT ContactName FROM customers
+                """;
+        preparedStatement = connection.prepareStatement(query);
+        result = preparedStatement.executeQuery();
+
+        while (result.next()) {
+            String contactName = result.getString("ContactName");
+            System.out.println("ContactName " + contactName);
+
+        }
+    }
 }
