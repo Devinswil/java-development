@@ -45,7 +45,7 @@ public class Application {
                     }
                 }
 
-          
+
                 System.out.print("Enter the first name of an actor: ");
                 String firstName = scanner.nextLine();
                 System.out.print("Enter the last name of an actor: ");
