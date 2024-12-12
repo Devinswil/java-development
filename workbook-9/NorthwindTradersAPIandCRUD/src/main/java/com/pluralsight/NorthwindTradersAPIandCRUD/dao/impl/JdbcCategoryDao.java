@@ -93,7 +93,40 @@ public class JdbcCategoryDao implements ICategoryDao {
         return category;
     }
 
+    @Override
+    public void update(int categoryId, Category category) {
+        String query = "Update categories SET CategoryName = ? WHERE CategoryID = ?";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, category.getCategoryName());
+            statement.setInt(2,categoryId);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
+
+    @Override
+    public void delete(int categoryId) {
+        String sql = "DELETE FROM categories WHERE CategoryID = ?";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, categoryId);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+}
 
 
 

@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 public class CategoryController {
-private ICategoryDao dao;
+    private ICategoryDao dao;
+
     @Autowired
     public CategoryController(ICategoryDao dao) {
         this.dao = dao;
@@ -32,4 +33,16 @@ private ICategoryDao dao;
     public Category insertCategory(@RequestBody Category category) {
         return dao.insert(category);
     }
+
+    @RequestMapping(path = "/categories/{categoryId}", method = RequestMethod.PUT)
+    public void updateCategory(@PathVariable int categoryId, @RequestBody Category category) {
+        dao.update(categoryId, category);
+    }
+
+    @RequestMapping(path = "/categories/{categoryId}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteCategory(@PathVariable int categoryId) {
+        dao.delete(categoryId);
+    }
+
 }
